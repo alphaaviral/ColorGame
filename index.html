@@ -1,67 +1,27 @@
 <!DOCTYPE html>
-
 <html>
   <head>
     <title>Color Game</title>
     <link rel="stylesheet" href="./index.css" />
   </head>
   <body onload="newGame()">
-    <div id="header">
-      <h2>The Great</h2>
-      <h1 id="header-clue">rgb(xxx,xxx,xxx)</h1>
-      <h2>Guessing Game</h2>
-    </div>
     <div id="container">
-      <div class="tile" id="1"></div>
-      <div class="tile" id="2"></div>
-    </div>
-
-    <script>
-      var t1 = document.getElementById("1");
-      var t2 = document.getElementById("2");
-      var x;
-      var correctColor;
-
-      function getRandomColor() {
-        var letters = "0123456789ABCDEF";
-        var color = "#";
-        for (var i = 0; i < 6; i++) {
-          color += letters[Math.floor(Math.random() * 16)];
-        }
-        return color;
-      }
-
-      function newGame() {
-        t1.style.background = getRandomColor();
-        t2.style.background = getRandomColor();
-
-        x = Math.floor(Math.random() * 2 + 1);
-
-        if (x == 1) correctColor = t1.style.background;
-        else correctColor = t2.style.background;
-        /* console.log(x);
-        console.log(correctColor); */
-
-        document.getElementById("header-clue").innerHTML = correctColor;
-      }
-
-      t1.addEventListener("click", function () {
-        if (t1.style.background == correctColor) {
-          t2.style.background = correctColor;
-          document.getElementById("header").style.background = correctColor;
-        } else {
-          t1.style.background = "black";
-        }
-      });
-
-      t2.addEventListener("click", function () {
-        if (t2.style.background == correctColor) {
-          t1.style.background = correctColor;
-          document.getElementById("header").style.background = correctColor;
-        } else {
-          t2.style.background = "black";
-        }
-      });
-    </script>
+      <div id="header">
+        <h2>Color Game</h2>
+      </div>
+      <div id="header-clue">rgb(xxx,xxx,xxx)</div>
+      <div class="tile" id="t1"></div>
+      <div class="tile" id="t2"></div>
+      <div class="tile" id="t3"></div>
+      <div class="tile" id="t4"></div>
+      <div class="tile" id="t5"></div>
+      <div class="tile" id="t6"></div>
+      <div id="points"></div>
+      <div id="counter"></div>
+      <div id="insTag">First time here? See </div>
+      <button id="refButton" onClick="window.location.reload()">New Game</button>
+      <a href="https://alphaaviral.github.io/colorGameIns/" target="_blank" id="link">How to play</a>
+    </div> 
+    <script src="./index.js"></script>
   </body>
 </html>
